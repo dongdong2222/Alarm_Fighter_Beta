@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
-    int monsterIndex = 0;           //���� ���� �ε���(����� ��)
-    int maxMonsterNum;              //�ִ� ���� ��      //monsters(List).Count �� �ʱ�ȭ��
+    int monsterIndex = 0;           
+    int maxMonsterNum;             
 
     [SerializeField]
 
-    List<GameObject> monsters = new List<GameObject>();     //��� �ʱ�ȭ? Inspectorâ�� ���콺 �巡��
+    List<GameObject> monsters = new List<GameObject>();  
 
 
     [SerializeField]
@@ -23,16 +23,15 @@ public class GameScene : BaseScene
     {
         Managers.Timing.Clear();
         monsters.Clear();
-        monsterIndex = 0;       //?????
+        monsterIndex = 0;      
     }
 
     protected override void Init()
     {
-        base.Init();            //base�� �θ� Ŭ������ �ǹ�
+        base.Init();            
         SetMaxMonsterNum();
         Managers.Game.SetMonsterCount(maxMonsterNum);
-        SoundBgmPlay();         //BaseScene�� ���
-        SponeMonster();
+        SoundBgmPlay();        
         SponeBackGround();
         //SponeNoteBar();
         SponePlayer();

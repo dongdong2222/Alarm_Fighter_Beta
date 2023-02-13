@@ -41,8 +41,10 @@ public class MonsterAttackPatterns : MonoBehaviour
     }
     public void RandomAttack(int x1, int x2, int y1, int y2, int num)//in range x1<=X<=x2, y1<=X<=y2, how many attack num
     {
-        if (x1 < 0 || x2 < 0 || y1 < 0 || y2 < 0 || x1 > x2 || y1 > y2) { Debug.Log("MonsterAttackPatterns RandomAttack range out of index"); return; }
-        if (width - 1 < x2 || height - 1 < y2) { Debug.Log("MonsterAttackPatterns RandomAttack range out of index"); return; }
+        if (x1 < 0 || x2 < 0 || y1 < 0 || y2 < 0 || x1 > x2 || y1 > y2) 
+        { Debug.Log("MonsterAttackPatterns RandomAttack range out of index"); return; }
+        if (width - 1 < x2 || height - 1 < y2) 
+        { Debug.Log("MonsterAttackPatterns RandomAttack range out of index"); return; }
         for (int i = 0; i < num; i++)
         {
             int x = Random.Range(x1, x2+1);

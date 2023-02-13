@@ -23,7 +23,7 @@ public class GridBaseSpawn : MonoBehaviour
         currentTime += Time.deltaTime;
         if (currentTime >= 60d / Managers.Bpm.BPM)
         {
-            Debug.Log("workd");
+            Debug.Log("work!");
             BitBehave();
             currentTime -= 60d / Managers.Bpm.BPM;
         }
@@ -33,8 +33,6 @@ public class GridBaseSpawn : MonoBehaviour
     // Update is called once per frame
     void BitBehave()
     {
-
-
         if (maxItem <= currentItem)
             return;
 
@@ -58,18 +56,11 @@ public class GridBaseSpawn : MonoBehaviour
         {
             int tempX = Random.Range(0, 12);
             int tempY = Random.Range(0, 2);
-
             //if (!Managers.Field.GetField(tempX, tempY).spawnable)t
              //   continue;
-
-
             x = tempX;
             y = tempY;
-            return;
-            
-
+            return;           
         }
-
-
     }
 }

@@ -12,7 +12,7 @@ public class Player_Parent : MonoBehaviour
         current_X = 5;
         current_Y = 1;
         this.transform.position = Managers.Field.GetGrid(current_X, current_Y).transform.position;
-        ChangeSize(current_Y);
+        //ChangeSize(current_Y);
     }
 
     // Update is called once per frame
@@ -70,8 +70,7 @@ public class Player_Parent : MonoBehaviour
         this.transform.position = Managers.Field.GetGrid(move_X, move_Y).transform.position;
         current_X = move_X;
         current_Y = move_Y;
-
-        ChangeSize(current_Y);
+        Managers.Field.ScaleByRatio(gameObject,current_X,current_Y);
     }
     // 원근감을 제대로 내기 위해서는 비율만 바꾸면 됨 (2.11 재윤 추가)
     protected void ChangeSize(int currentInd_Y)
