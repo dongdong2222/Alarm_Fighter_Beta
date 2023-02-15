@@ -50,12 +50,12 @@ public class Character : MonoBehaviour
         }
     }
     // 원근감을 제대로 내기 위해서는 비율만 바꾸면 됨 (2.11 재윤 추가)
-    protected void ChangeSize(int current_Y)
-    {
-        // fieldmanager에서 가져와서 변경하기
-        Vector3 size = new Vector3((float)(current_Y + 1) * 0.16f, (float)(current_Y + 1) * 0.16f, (float)(current_Y + 1) * 0.16f);
-        this.transform.localScale = size;
-    }
+    //protected void ChangeSize(int current_Y)
+    //{
+    //    // fieldmanager에서 가져와서 변경하기
+    //    Vector3 size = new Vector3((float)(current_Y + 1) * 0.16f, (float)(current_Y + 1) * 0.16f, (float)(current_Y + 1) * 0.16f);
+    //    this.transform.localScale = size;
+    //}
 
     protected void Attack()
     {

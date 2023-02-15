@@ -15,20 +15,20 @@ public class RoundField : MonoBehaviour
     public List<List<FieldInfo>> GetGridArray() { return gridArray; }
     public FieldInfo GetFieldInfo(int x, int y)
     {
-        if (x > width || y > height || x < 0 || y < 0)
+        if (x >= width || y >= height || x < 0 || y < 0)
         { Debug.Log("RoundField GetFieldInfo out of index"); return null; }
         return gridArray[x][y];
     }
     public GameObject GetGrid(int x, int y)
     {
-        if (x > width || y > height || x < 0 || y < 0)
+        if (x >= width || y >= height || x < 0 || y < 0)
         { Debug.Log("RoundField GetGrid out of index"); return null; }
         return gridArray[x][y].grid;
     }
     public void ChangeGrid(int x, int y, Define.GridState state)
     {
         GameObject go = GetGrid(x, y);
-        SpriteRenderer sr;//= go.GetComponent<SpriteRenderer>();
+        SpriteRenderer sr;
         switch (state)
         {
             case Define.GridState.Base:
@@ -49,9 +49,7 @@ public class RoundField : MonoBehaviour
     public void ScaleByRatio(GameObject go, int x, int y)
     {
         Vector3 playerScale = go.transform.localScale;
-
         playerScale = Vector3.one * GetFieldInfo(x, y).ratio;
-
         go.transform.localScale = playerScale;
     }
     public void Init()
@@ -87,7 +85,5 @@ public class FieldInfo
 {
     public GameObject grid; // one prefab
     public float ratio = 1.0f; // used by player scale
-
     public bool spawnable = true;
-
 }

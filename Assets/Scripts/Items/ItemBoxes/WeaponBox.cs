@@ -45,6 +45,7 @@ public class WeaponBox : MonoBehaviour
     public void SetLocation(int x, int y)
     {
         Vector3 pos = Managers.Field.GetGrid(x, y).transform.position;
+        Managers.Field.ScaleByRatio(gameObject,x,y);
         transform.position = pos;
         this.x = x;
         this.y = y;
