@@ -21,10 +21,16 @@ public class RoundField : MonoBehaviour
     }
     public GameObject GetGrid(int x, int y)
     {
+<<<<<<< HEAD
         if (x >= width || y >= height || x < 0 || y < 0)
         { Debug.Log("RoundField GetGrid out of index"); return null; }
+=======
+       /* if (x > width || y > height || x < 0 || y < 0)
+        { Debug.Log("RoundField GetGrid out of index"); return null; }*/
+>>>>>>> d565704ad00599c5262891bc8e5df209848b0425
         return gridArray[x][y].grid;
     }
+    
     public void ChangeGrid(int x, int y, Define.GridState state)
     {
         GameObject go = GetGrid(x, y);
@@ -52,6 +58,7 @@ public class RoundField : MonoBehaviour
         playerScale = Vector3.one * GetFieldInfo(x, y).ratio;
         go.transform.localScale = playerScale;
     }
+    
     public void Init()
     {
         for (int i = 0; i < width; i++)
