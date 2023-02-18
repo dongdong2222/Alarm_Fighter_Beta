@@ -6,9 +6,10 @@ public class PlayerStat : Stat
 {
     void Start()
     {
-        MaxHP = 10f;
-        CurrentHP = 10f;
+        MaxHP = 10;
+        CurrentHP = 10;
 
-        GetComponent<HpBarUpdater>().hpbar.maxValue = MaxHP;
+        //GetComponent<HpBarUpdater>().GetSliderComponent().maxValue = MaxHP;
+
     }
 }

@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Stat : MonoBehaviour
 {
-    public float MaxHP;
-    public float CurrentHP;
+    public int MaxHP;
+    public int CurrentHP;
 
-    public void DecreaseCurrnetHP(float amount)
-    {
-        CurrentHP -= amount;
-    }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //spone?sponsor?
 
@@ -39,8 +40,8 @@ public class GameScene : BaseScene
         SponePlayer();
         SponeField();
         SponeMoveButton();
-        SpawnPlayerHpBar();
-        SpawnMonsterHpBar();
+        //SpawnPlayerHpBar();
+        //SpawnMonsterHpBar();
         SpawnMonsterHpBarMiddle();
         Managers.Item.Init();
         Managers.Resource.Instantiate("Items/ItemBoxes/@GridBaseSpawn");
@@ -57,6 +58,8 @@ public class GameScene : BaseScene
     {
         if (monsters.Count == 0) return;
         GameObject go = Instantiate(monsters[monsterIndex]) as GameObject;
+
+        SpawnMonsterHpBar(go);
     }
     private void SponeBackGround()              //
     {
@@ -74,6 +77,8 @@ public class GameScene : BaseScene
         go = Instantiate<GameObject>(go) as GameObject;
         Managers.Player.SetPlayer(go.GetComponent<Character>());
         Managers.Game.CurrentPlayer = go;
+
+        SpawnPlayerHpBar(go);
     }
     private void SponeField()
     {
@@ -89,17 +94,19 @@ public class GameScene : BaseScene
 
     }
 
-    private void SpawnPlayerHpBar()
+    private void SpawnPlayerHpBar(GameObject parent)
     {
         GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/PlayerHpBar");
         go = Instantiate<GameObject>(go) as GameObject;
+        parent.GetComponent<HpBarUpdater>().hpbar = go;
         //GameObject go2 = Managers.Resource.Instantiate("Prefabs/UI/PlayerHpBar");
     }
 
-    private void SpawnMonsterHpBar()
+    private void SpawnMonsterHpBar(GameObject parent)
     {
         GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/MonsterHpBar");
         go = Instantiate<GameObject>(go) as GameObject;
+        parent.GetComponent<HpBarUpdater>().hpbar = go;
         //GameObject go1 = Managers.Resource.Instantiate("Prefabs/UI/MonsterHpBar");
     }
     private void SpawnMonsterHpBarMiddle()

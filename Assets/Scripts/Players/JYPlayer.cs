@@ -46,8 +46,6 @@ public class JYPlayer : Character
         
     }
 
-    
-
     void CheckMove()
     {
         float direct = (transform.position - Managers.Field.GetGrid(move_X, move_Y).transform.position).magnitude;
@@ -64,7 +62,7 @@ public class JYPlayer : Character
         float direct = 0;
         int width = Managers.Field.GetWidth();
         direct = ((float)x / width) * 2f;
-        Debug.Log($"float :{direct}");
+        //Debug.Log($"float :{direct}");
         //int part = width / 3;
         //if (x < part)
         //    direct = 0;
@@ -74,5 +72,24 @@ public class JYPlayer : Character
         //    direct = 1;
         anim.SetFloat("Idle", direct);
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Monster의 Attack Object가 Collider일 경우, collision의 Tag를 검사하여 알맞은 데미지를 계산
+        /*
+        if (collision.CompareTag("Hit"))
+        {
+            Debug.Log("hit");
+            this.GetComponent<Stat>().CurrentHP -= 1;
+        }
+        else return;
+        */
+        Debug.Log("hit");
+        this.GetComponent<Stat>().CurrentHP -= 1;
+        if(this.GetComponent<Stat>().CurrentHP <= 0)
+        {
+            Debug.Log("Player Die");
+            //Die();
+        }    
+    }
 }
