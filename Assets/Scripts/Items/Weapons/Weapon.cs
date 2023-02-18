@@ -11,9 +11,10 @@ public class Weapon
     protected GameObject weaponObject;
     int Damage;
 
-    public virtual void Attack()
+    public virtual void Attack(Transform parent)
     {
         //to do : ¿Ã∆Â∆Æ º“»Ø
+
     }
 
     public void WeaponDestroy()
