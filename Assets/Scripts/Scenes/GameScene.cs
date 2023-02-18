@@ -40,6 +40,7 @@ public class GameScene : BaseScene
         SponePlayer();
         SponeField();
         SponeMoveButton();
+        SpawnTimer();
         //SpawnPlayerHpBar();
         //SpawnMonsterHpBar();
         SpawnMonsterHpBarMiddle();
@@ -90,6 +91,13 @@ public class GameScene : BaseScene
     private void SponeMoveButton()
     {
         GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/MoveButton");
+        go = Instantiate<GameObject>(go) as GameObject;
+
+    }
+    
+    private void SpawnTimer()
+    {
+        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/Timer");
         go = Instantiate<GameObject>(go) as GameObject;
 
     }
