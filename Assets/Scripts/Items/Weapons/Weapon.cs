@@ -14,7 +14,8 @@ public class Weapon
 
     public virtual void Attack(Transform parent)
     {
-        
+        //to do : ����Ʈ ��ȯ
+
 
     }
 
