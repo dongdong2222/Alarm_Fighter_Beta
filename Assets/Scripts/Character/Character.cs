@@ -83,6 +83,6 @@ public class Character : MonoBehaviour
         if (wp.CurrentWeapon == null)
             return;
 
-        wp.CurrentWeapon.Attack();
+        wp.CurrentWeapon.Attack(transform);
     }
 }
