@@ -9,11 +9,13 @@ public class Weapon
     int numOfAttack;
     AnimationClip attackAnim;
     protected GameObject weaponObject;
+    protected string attackEffect;
     int Damage;
 
     public virtual void Attack(Transform parent)
     {
-        //to do : ÀÌÆåÆ® ¼ÒÈ¯
+        //to do : ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¯
+
 
     }
 
