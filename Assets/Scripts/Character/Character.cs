@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
     public void IsUp() { isUp = true; }
     public void IsDown() { isDown = true; }
 
-    // CharaterÀÇ ÇöÀç X¿Í Y Index ¹İÈ¯
+    // Charaterì˜ í˜„ì¬ Xì™€ Y Index ë°˜í™˜
     public int GetCharacterInd_X()
     {
         return current_X;
@@ -35,7 +35,7 @@ public class Character : MonoBehaviour
         move_X = current_X;
         move_Y = current_Y;
 
-        // ¿òÁ÷ÀÏ ¼ö ÀÖ´Â ÀÎµ¦½ºÀÎÁö °Ë»ç
+        // ì›€ì§ì¼ ìˆ˜ ìˆëŠ” ì¸ë±ìŠ¤ì¸ì§€ ê²€ì‚¬
         if (direction == Define.PlayerMove.Up)
         {
             move_Y -= 1;
@@ -69,10 +69,10 @@ public class Character : MonoBehaviour
             anim.SetBool("IsMoveR", true);
         }
     }
-    // ¿ø±Ù°¨À» Á¦´ë·Î ³»±â À§ÇØ¼­´Â ºñÀ²¸¸ ¹Ù²Ù¸é µÊ (2.11 ÀçÀ± Ãß°¡)
+    // ì›ê·¼ê°ì„ ì œëŒ€ë¡œ ë‚´ê¸° ìœ„í•´ì„œëŠ” ë¹„ìœ¨ë§Œ ë°”ê¾¸ë©´ ë¨ (2.11 ì¬ìœ¤ ì¶”ê°€)
     protected void ChangeSize(int current_Y)
     {
-        // fieldmanager¿¡¼­ °¡Á®¿Í¼­ º¯°æÇÏ±â
+        // fieldmanagerì—ì„œ ê°€ì ¸ì™€ì„œ ë³€ê²½í•˜ê¸°
         Vector3 size = new Vector3((float)(current_Y + 1) * 0.16f, (float)(current_Y + 1) * 0.16f, (float)(current_Y + 1) * 0.16f);
         this.transform.localScale = size;
     }
@@ -83,6 +83,8 @@ public class Character : MonoBehaviour
         if (wp.CurrentWeapon == null)
             return;
 
-        //wp.CurrentWeapon.Attack();
+
+//      wp.CurrentWeapon.Attack(transform);
+
     }
 }
