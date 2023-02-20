@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//spone?sponsor?
-
 public class GameScene : BaseScene
 {
     int monsterIndex = 0;           //���� ���� �ε���(����� ��)
@@ -34,19 +32,19 @@ public class GameScene : BaseScene
         SetMaxMonsterNum();
         Managers.Game.SetMonsterCount(maxMonsterNum);
         //SoundBgmPlay();         //BaseScene�� ���
-        SponeMonster();
-        SponeBackGround();
-        SponeNoteBar();
-        SponePlayer();
-        SponeField();
-        SponeMoveButton();
+        SpawnMonster();
+        SpawnBackGround();
+        SpawnNoteBar();
+        SpawnPlayer();
+        SpawnField();
+        SpawnMoveButton();
         SpawnTimer();
-        //SpawnPlayerHpBar();
-        //SpawnMonsterHpBar();
-        SpawnMonsterHpBarMiddle();
+        SpawnHpBarMiddle();
+        /*
         Managers.Item.Init();
         Managers.Resource.Instantiate("Items/ItemBoxes/@GridBaseSpawn");
         Managers.Menu.Init();
+        */
     }
 
    
@@ -55,24 +53,25 @@ public class GameScene : BaseScene
         Managers.Timing.UpdatePerBit();         //�� ��Ʈ���� ���� �ൿ ����Ʈ
         Managers.Game.CheckLeftMonster();       //��� ���Ͱ� ����ϴ��� Ȯ��
     }
-    private void SponeMonster()                 //Ư�(monsterIndex) �ε��� ��° ���� ��
+    private void SpawnMonster()                 //Ư�(monsterIndex) �ε��� ��° ���� ��
     {
         if (monsters.Count == 0) return;
         GameObject go = Instantiate(monsters[monsterIndex]) as GameObject;
 
         SpawnMonsterHpBar(go);
+        Managers.Monster.BossMonster = go;
     }
-    private void SponeBackGround()              //
+    private void SpawnBackGround()              //
     {
         GameObject go = Instantiate(backGround) as GameObject;      //
         //go = Instantiate<GameObject>(go) as GameObject;     //?????
     }
-    private void SponeNoteBar()
+    private void SpawnNoteBar()
     {
         GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Notes/NoteBar/NoteBar");
         go = Instantiate(go) as GameObject;
     }
-    private void SponePlayer()
+    private void SpawnPlayer()
     {
         GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Players/Player");
         go = Instantiate<GameObject>(go) as GameObject;
@@ -81,14 +80,14 @@ public class GameScene : BaseScene
 
         SpawnPlayerHpBar(go);
     }
-    private void SponeField()
+    private void SpawnField()
     {
         GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Fields/RoundField1");
         go = Instantiate<GameObject>(go) as GameObject;
         Managers.Field.SetField(go.GetComponent<RoundField>());
         Managers.Field.Init();
     }
-    private void SponeMoveButton()
+    private void SpawnMoveButton()
     {
         GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/MoveButton");
         go = Instantiate<GameObject>(go) as GameObject;
@@ -117,7 +116,7 @@ public class GameScene : BaseScene
         parent.GetComponent<HpBarUpdater>().hpbar = go;
         //GameObject go1 = Managers.Resource.Instantiate("Prefabs/UI/MonsterHpBar");
     }
-    private void SpawnMonsterHpBarMiddle()
+    private void SpawnHpBarMiddle()
     {
         GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/HpBarMiddle");
         go = Instantiate<GameObject>(go) as GameObject;
@@ -129,7 +128,7 @@ public class GameScene : BaseScene
         if (monsterIndex < maxMonsterNum - 1)
         {
             monsterIndex++;
-            SponeMonster();
+            SpawnMonster();
         }
     }
 }

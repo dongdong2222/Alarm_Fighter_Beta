@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 901a71ae305daf843b83a65b791fb0fc
+guid: 981964dff4afc4243a3082863d964a9c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,22 +117,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cameraMonster1_0
+      name: CameraMonster_ClosedEye_0
       rect:
         serializedVersion: 2
-        x: 142
+        x: 143
         y: 604
         width: 279
         height: 297
       alignment: 9
-      pivot: {x: 0.405676, y: 0.31508014}
+      pivot: {x: 0.38445887, y: 0.29455176}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aae6c68f278035e47b1bd54c47a56863
-      internalID: -1900155889
+      spriteID: 1792dc117da03154695ba9d0f63005cb
+      internalID: 2073626507
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cameraMonster1_0: -1900155889
+      CameraMonster_ClosedEye_0: 2073626507
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

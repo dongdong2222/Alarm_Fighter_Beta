@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2658406897315016493
+--- !u!1 &7661225588590503734
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4639618828929482511}
-  - component: {fileID: 4548008268612883493}
-  - component: {fileID: 5621781582521690143}
-  - component: {fileID: 8752168831605253124}
-  - component: {fileID: 6403013502026571435}
+  - component: {fileID: 7661225588590503728}
+  - component: {fileID: 7661225588590503735}
+  - component: {fileID: 9159984423446329815}
   m_Layer: 0
-  m_Name: CameraMonster
+  m_Name: FlashAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4639618828929482511
+--- !u!4 &7661225588590503728
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2658406897315016493}
+  m_GameObject: {fileID: 7661225588590503734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3504878, y: 1.3504878, z: 1.3504878}
+  m_LocalPosition: {x: 0.1723, y: -0.0804, z: 0}
+  m_LocalScale: {x: 14.81566, y: 10.411937, z: 0.99116}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4548008268612883493
+--- !u!212 &7661225588590503735
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2658406897315016493}
+  m_GameObject: {fileID: 7661225588590503734}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,60 +73,27 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -1900155889, guid: 901a71ae305daf843b83a65b791fb0fc, type: 3}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.79, y: 2.97}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5621781582521690143
+--- !u!114 &9159984423446329815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2658406897315016493}
+  m_GameObject: {fileID: 7661225588590503734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 603ac1991ea77e945a87983aca4c5db6, type: 3}
+  m_Script: {fileID: 11500000, guid: 5392684363269c74a81f1e5be36be585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalMons:
-  - {fileID: 2676706974416588801, guid: 877271be54a6f9c44ab33b785b69d4eb, type: 3}
-  verticalMons:
-  - {fileID: 5242944870140134735, guid: 488ae20d9cdce444d832e898f8c5b989, type: 3}
-  randomMons:
-  - {fileID: 365997711308167143, guid: 28b048d2a177ff24d9797892f97e2f1c, type: 3}
---- !u!114 &8752168831605253124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2658406897315016493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fcab42d6276d8e439f9b9d5676cf1ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpbar: {fileID: 5730832427727975426, guid: ea37856b824b5854aa8a2c8a47d07a0e, type: 3}
---- !u!114 &6403013502026571435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2658406897315016493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc4fa0364e5354498f6663dc7cb1344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 0
-  CurrentHP: 0
