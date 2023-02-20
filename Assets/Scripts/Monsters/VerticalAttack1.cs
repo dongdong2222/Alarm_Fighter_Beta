@@ -57,10 +57,10 @@ public class VerticalAttack1 : MiniMonster_Parent
             Vector3 movePoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
             transform.position = Vector3.MoveTowards(transform.position, movePoint, Time.deltaTime * speed);
 
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));  //------------------------
+
             current_X = move_X;
             current_Y = move_Y;
-            
-            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));  //------------------------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
@@ -94,11 +94,11 @@ public class VerticalAttack1 : MiniMonster_Parent
     {
         Animator anim = GetComponent<Animator>();
         anim.SetTrigger("Jump");
-        
+
         mayGo(nextDirection);
-      
+
         //StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));//-----------------
-       
+
         nextBehavior = Define.State.ATTACKREADY;
     }
 
@@ -106,7 +106,7 @@ public class VerticalAttack1 : MiniMonster_Parent
     {
         nextDirection = Define.PlayerMove.Down;
     }
-    
+
     protected override void Die()
     {
         Destroy(gameObject);

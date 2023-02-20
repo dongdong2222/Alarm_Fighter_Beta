@@ -39,10 +39,10 @@ public class HorizontalAttack1 : MiniMonster_Parent
             Vector3 movePoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
             transform.position = Vector3.MoveTowards(transform.position, movePoint, Time.deltaTime * speed);
 
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));//------------------
+
             current_X = move_X;
             current_Y = move_Y;
-
-            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));//------------------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
@@ -125,7 +125,7 @@ public class HorizontalAttack1 : MiniMonster_Parent
         currentGridColor.color = new Color(255f, 255f, 255f, 1);
     }
 
-    protected override void OnTriggerEnter2D(Collider2D collision) 
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
         currentHp -= 1;
         if (currentHp <= 0)
@@ -134,7 +134,5 @@ public class HorizontalAttack1 : MiniMonster_Parent
         }
 
     }
-
-
 
 }

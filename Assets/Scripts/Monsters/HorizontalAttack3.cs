@@ -27,12 +27,12 @@ public class HorizontalAttack3 : MiniMonster_Parent
         //소환되는 애니메이션 실행
         Managers.Timing.BehaveAction -= AutoBitBehave;      //VMon1의 비트 마다 실행할 BitBehave 구독
         Managers.Timing.BehaveAction += AutoBitBehave;
-        
-        Debug.Log("start전 현재 선택된 방향:   " + nextDirection + "," + a + "," + b);
+
+        //Debug.Log("start전 현재 선택된 방향:   " + nextDirection + "," + a + "," + b);
 
         SelectNextDirection();
 
-        Debug.Log("start 서 현재 선택된 방향:   " + nextDirection + "," + a + "," + b);
+        //Debug.Log("start 서 현재 선택된 방향:   " + nextDirection + "," + a + "," + b);
     }
 
     private void FixedUpdate()
@@ -46,10 +46,10 @@ public class HorizontalAttack3 : MiniMonster_Parent
             Vector3 movePoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
             transform.position = Vector3.MoveTowards(transform.position, movePoint, Time.deltaTime * speed);
 
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));  //------------------
+
             current_X = move_X;
             current_Y = move_Y;
-
-            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));  //------------------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
@@ -90,7 +90,7 @@ public class HorizontalAttack3 : MiniMonster_Parent
 
         try
         {
-            if (current_X + a > Managers.Field.GetWidth()-1)
+            if (current_X + a > Managers.Field.GetWidth() - 1)
             {
                 nextBehavior = Define.State.DIE;
                 return;
@@ -103,7 +103,7 @@ public class HorizontalAttack3 : MiniMonster_Parent
         {
             //Debug.Log("RR shoud die ArgumentOutOfRangeException");
             SelectNextDirection();
-            Debug.Log("attack ready서 현재 선택된 방향:   " + this.nextDirection + "," + a +"," + b);
+            //Debug.Log("attack ready서 현재 선택된 방향:   " + this.nextDirection + "," + a +"," + b);
 
             SpriteRenderer gridColor = Managers.Field.GetGrid(current_X + a, current_Y + b).GetComponent<SpriteRenderer>();
             gridColor.color = Color.red;
@@ -117,8 +117,8 @@ public class HorizontalAttack3 : MiniMonster_Parent
     {
         mayGo(nextDirection);
 
-        Debug.Log("Move_x, Move_Y:  " + move_X + " ," + move_Y);
-        Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
+        //Debug.Log("Move_x, Move_Y:  " + move_X + " ," + move_Y);
+        //Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
 
         StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));
 

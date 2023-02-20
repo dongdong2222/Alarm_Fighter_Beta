@@ -4,16 +4,22 @@ using UnityEngine;
 public class MonsterManager : MonoBehaviour
 {
 
+    private GameObject bossMonster;
+
     public List<GameObject> CurrentVMons = new List<GameObject>();     //현재 필드에 나와있는 세로 공격형 몬스터 수      
     public List<GameObject> CurrentHMons = new List<GameObject>();     //현재 필드에 나와있는 가로 공격형 몬스터 수
     public List<GameObject> CurrentRMons = new List<GameObject>();     //현재 필드에 나와있는 랜덤 공격형 몬스터 수
-
+    
     /*public List<Component> CurrentVMons = new List<GameObject>();
     public List<GameObject> CurrentHMons = new List<GameObject>();
     public List<GameObject> CurrentRMons = new List<GameObject>();*/
 
     //----------------------------------------------------------------
-    
+    public GameObject BossMonster
+    {
+        get { return bossMonster; }
+        set { bossMonster = value; }
+    }
     public int GetCurrent_X(GameObject monster)
     {
         return monster.GetComponent<MiniMonster_Parent>().GetCurrent_X();

@@ -51,10 +51,10 @@ public class RandomAttack2 : MiniMonster_Parent
             Vector3 movePoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
             transform.position = Vector3.MoveTowards(transform.position, movePoint, Time.deltaTime * speed);
 
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));//-------
+
             current_X = move_X;
             current_Y = move_Y;
-
-            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));//-------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
@@ -97,11 +97,11 @@ public class RandomAttack2 : MiniMonster_Parent
         {
             try
             {
-               /* if (current_X + a > Managers.Field.GetWidth() - 1)
-                {
-                    nextBehavior = Define.State.DIE;
-                    return;
-                }*/
+                /* if (current_X + a > Managers.Field.GetWidth() - 1)
+                 {
+                     nextBehavior = Define.State.DIE;
+                     return;
+                 }*/
                 SelectNextDirection();
 
                 //Debug.Log("RandomAttack2ÀÇ update ½ÇÇàµÊ");
@@ -151,7 +151,7 @@ public class RandomAttack2 : MiniMonster_Parent
                 a = 0;
                 b = 1;
                 break;
-                
+
             case Define.PlayerMove.Left:
                 a = -1;
                 b = 0;

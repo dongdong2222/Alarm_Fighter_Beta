@@ -24,12 +24,13 @@ public class JYPlayer : Character
         else if (isDown && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Down); isDown = false; }
         else if (isRight && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Right); isRight = false; }
 
-       /* Vector2 checkPoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
+
+        /*Vector2 checkPoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
         if (((move_X != current_X) || (move_Y != current_Y)) && (Physics2D.OverlapCircle(checkPoint, 0.2f)))
         {
-            //Debug.Log("Player의 movepoint에 몬스터 존재");
-            //SpriteRenderer moveGridColor = Managers.Field.GetGrid(move_X, move_Y).GetComponent<SpriteRenderer>();
-            //moveGridColor.color = new Color(255f, 255f, 255f, 1);
+            Debug.Log("Player의 movepoint에 몬스터 존재");
+            SpriteRenderer moveGridColor = Managers.Field.GetGrid(move_X, move_Y).GetComponent<SpriteRenderer>();
+            moveGridColor.color = new Color(255f, 255f, 255f, 1);
 
             move_X = current_X;
             move_Y = current_Y;
@@ -45,8 +46,6 @@ public class JYPlayer : Character
         Managers.Field.ScaleByRatio(gameObject, current_X, current_Y);
         
     }
-
-    
 
     void CheckMove()
     {
@@ -64,7 +63,7 @@ public class JYPlayer : Character
         float direct = 0;
         int width = Managers.Field.GetWidth();
         direct = ((float)x / width) * 2f;
-        Debug.Log($"float :{direct}");
+        //Debug.Log($"float :{direct}");
         //int part = width / 3;
         //if (x < part)
         //    direct = 0;
@@ -74,5 +73,24 @@ public class JYPlayer : Character
         //    direct = 1;
         anim.SetFloat("Idle", direct);
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Monster의 Attack Object가 Collider일 경우, collision의 Tag를 검사하여 알맞은 데미지를 계산
+        /*
+        if (collision.CompareTag("Hit"))
+        {
+            Debug.Log("hit");
+            this.GetComponent<Stat>().CurrentHP -= 1;
+        }
+        else return;
+        */
+        Debug.Log("hit");
+        this.GetComponent<Stat>().CurrentHP -= 1;
+        if(this.GetComponent<Stat>().CurrentHP <= 0)
+        {
+            Debug.Log("Player Die");
+            //Die();
+        }    
+    }
 }

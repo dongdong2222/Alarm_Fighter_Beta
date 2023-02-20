@@ -120,12 +120,12 @@ TextureImporter:
       name: cameraMonster1_0
       rect:
         serializedVersion: 2
-        x: 143
+        x: 142
         y: 604
         width: 279
         height: 297
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.405676, y: 0.31508014}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
