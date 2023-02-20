@@ -22,9 +22,6 @@ public class MonsterAttackManager
         GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Monsters/AttackEffects/Lazer");
         GameObject effect = Managers.Resource.Load<GameObject>("Prefabs/Monsters/AttackEffects/Lazer_Boom");
 
-        go.AddComponent<Lazer>();
-        effect.AddComponent<Lazer_Boom>();
-        
         go.transform.position = transform.position;
         SetBasicScale(go);
         Transform transform_my = go.transform;
@@ -32,7 +29,12 @@ public class MonsterAttackManager
         effect.transform.position = SetEffect(x, y);
         SetRotation(go, transform_my, transform_target);
         go = Managers.Resource.Instantiate("Monsters/AttackEffects/Lazer");
-        go = Managers.Resource.Instantiate("Monsters/AttackEffects/Lazer_Boom");
+        effect = Managers.Resource.Instantiate("Monsters/AttackEffects/Lazer_Boom");
+
+        go.AddComponent<Lazer>();
+        effect.AddComponent<Lazer_Boom>();
+
+
     }
     public void SetBasicScale(GameObject go)        //Change private to public
     { 
